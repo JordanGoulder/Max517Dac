@@ -3,11 +3,12 @@
 
 #include <Arduino.h>
 
-const int DEFAULT_ADDRESS = 0x2C;
 
 class Max517Dac
 {
    public:
+      static const int DEFAULT_ADDRESS = 0x2C;
+
       Max517Dac(int address = DEFAULT_ADDRESS);
     
       void resetOutput(bool powerDown = false) const;
