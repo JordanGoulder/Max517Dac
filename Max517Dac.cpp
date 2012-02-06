@@ -14,7 +14,7 @@ Max517Dac::Max517Dac(int address)
 }
 
 void
-Max517Dac::resetOutput(bool powerDown)
+Max517Dac::resetOutput(bool powerDown) const
 {
    int command = CMD_RESET;
 
@@ -27,7 +27,7 @@ Max517Dac::resetOutput(bool powerDown)
 }
 
 void
-Max517Dac::setOutput(int output, bool powerDown)
+Max517Dac::setOutput(int output, bool powerDown) const
 {
    int command = CMD_SET_OUTPUT;
   
@@ -40,19 +40,19 @@ Max517Dac::setOutput(int output, bool powerDown)
 }
 
 void
-Max517Dac::powerDown(void)
+Max517Dac::powerDown(void) const
 {  
    mSendCommand(CMD_POWER_DOWN, NO_OUTPUT);
 }
 
 void
-Max517Dac::powerUp(void)
+Max517Dac::powerUp(void) const
 {  
    mSendCommand(CMD_POWER_UP, NO_OUTPUT);
 }
 
 void
-Max517Dac::mSendCommand(int command, int output)
+Max517Dac::mSendCommand(int command, int output) const
 {
    Wire.beginTransmission(mAddress);
    Wire.write(byte(command));
