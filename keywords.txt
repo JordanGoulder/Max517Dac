@@ -1,0 +1,5 @@
+Max517Dac	KEYWORD1
+resetOutput	KEYWORD2
+setOutput	KEYWORD2
+powerDown	KEYWORD2
+powerUp		KEYWORD2
