@@ -1,11 +1,11 @@
 #include <Wire.h>
 #include "Max517Dac.h"
 
-const int NO_OUTPUT       = -1;
-const int CMD_RESET       = 0x10;
-const int CMD_SET_OUTPUT  = 0x00;
-const int CMD_POWER_DOWN  = 0x08;
-const int CMD_POWER_UP    = 0x00;
+static const int NO_OUTPUT       = -1;
+static const int CMD_RESET       = 0x10;
+static const int CMD_SET_OUTPUT  = 0x00;
+static const int CMD_POWER_DOWN  = 0x08;
+static const int CMD_POWER_UP    = 0x00;
 
 Max517Dac::Max517Dac(int address)
 {
