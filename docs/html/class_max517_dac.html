@@ -92,34 +92,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a8769cf752fdb8d8053aebe5d880eda02">Max517Dac</a> (int address=<a class="el" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2">DEFAULT_ADDRESS</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new MAX517 device.  <a href="#a8769cf752fdb8d8053aebe5d880eda02"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#acf4b72598212276f19cc1b3bfd04b657">Max517Dac</a> (uint8_t address=<a class="el" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d">DEFAULT_ADDRESS</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new MAX517 device.  <a href="#acf4b72598212276f19cc1b3bfd04b657"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#ae1c33de73a558a11c9551bb971910618">resetOutput</a> (bool powerDownMode=false) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the DAC output back to 0.  <a href="#ae1c33de73a558a11c9551bb971910618"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a049becdc37238cdc34ac31d7ed7c193a">setOutput</a> (int value, bool powerDownMode=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the value of the DAC.  <a href="#a049becdc37238cdc34ac31d7ed7c193a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a675efc082bcdd58dc8b253e98a703ebe">powerDown</a> (void) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power down the device.  <a href="#a675efc082bcdd58dc8b253e98a703ebe"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a9a304725961f10f18e3f325ea036d6ac">powerUp</a> (void) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power up the device.  <a href="#a9a304725961f10f18e3f325ea036d6ac"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#ac963cc1ac971aa25a2a3350c53f27dd1">setOutput</a> (uint8_t value, bool powerDownMode=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the value of the DAC.  <a href="#ac963cc1ac971aa25a2a3350c53f27dd1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#af4d791898955546f3e8736c7ffb530a2">powerDown</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power down the device.  <a href="#af4d791898955546f3e8736c7ffb530a2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#af8b379dd2cea723ad6f82a0f12df50e6">powerUp</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power up the device.  <a href="#af8b379dd2cea723ad6f82a0f12df50e6"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2">DEFAULT_ADDRESS</a> = 0x2C</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default I2C address of the DAC.  <a href="#a4155addd434b3a1e519991657edddad2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d">DEFAULT_ADDRESS</a> = 0x2C</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default I2C address of the DAC.  <a href="#a8a33bd683569b40028e33820fdf7f56d"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>MAX517 8-bit DAC Device Class. </p>
-<p>This class provides a simple interface to the MAX517 8-bit DAC. </p>
+<p>This class provides a simple uint8_terface to the MAX517 8-bit DAC. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a8769cf752fdb8d8053aebe5d880eda02"></a><!-- doxytag: member="Max517Dac::Max517Dac" ref="a8769cf752fdb8d8053aebe5d880eda02" args="(int address=DEFAULT_ADDRESS)" -->
+<a class="anchor" id="acf4b72598212276f19cc1b3bfd04b657"></a><!-- doxytag: member="Max517Dac::Max517Dac" ref="acf4b72598212276f19cc1b3bfd04b657" args="(uint8_t address=DEFAULT_ADDRESS)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Max517Dac::Max517Dac </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>address</em> = <code><a class="el" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2">DEFAULT_ADDRESS</a></code></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>address</em> = <code><a class="el" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d">DEFAULT_ADDRESS</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -137,14 +137,13 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a675efc082bcdd58dc8b253e98a703ebe"></a><!-- doxytag: member="Max517Dac::powerDown" ref="a675efc082bcdd58dc8b253e98a703ebe" args="(void) const " -->
+<a class="anchor" id="af4d791898955546f3e8736c7ffb530a2"></a><!-- doxytag: member="Max517Dac::powerDown" ref="af4d791898955546f3e8736c7ffb530a2" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Max517Dac::powerDown </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -157,14 +156,13 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9a304725961f10f18e3f325ea036d6ac"></a><!-- doxytag: member="Max517Dac::powerUp" ref="a9a304725961f10f18e3f325ea036d6ac" args="(void) const " -->
+<a class="anchor" id="af8b379dd2cea723ad6f82a0f12df50e6"></a><!-- doxytag: member="Max517Dac::powerUp" ref="af8b379dd2cea723ad6f82a0f12df50e6" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Max517Dac::powerUp </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -203,14 +201,14 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a049becdc37238cdc34ac31d7ed7c193a"></a><!-- doxytag: member="Max517Dac::setOutput" ref="a049becdc37238cdc34ac31d7ed7c193a" args="(int value, bool powerDownMode=false) const " -->
+<a class="anchor" id="ac963cc1ac971aa25a2a3350c53f27dd1"></a><!-- doxytag: member="Max517Dac::setOutput" ref="ac963cc1ac971aa25a2a3350c53f27dd1" args="(uint8_t value, bool powerDownMode=false) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Max517Dac::setOutput </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
@@ -241,12 +239,12 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a4155addd434b3a1e519991657edddad2"></a><!-- doxytag: member="Max517Dac::DEFAULT_ADDRESS" ref="a4155addd434b3a1e519991657edddad2" args="" -->
+<a class="anchor" id="a8a33bd683569b40028e33820fdf7f56d"></a><!-- doxytag: member="Max517Dac::DEFAULT_ADDRESS" ref="a8a33bd683569b40028e33820fdf7f56d" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2">Max517Dac::DEFAULT_ADDRESS</a> = 0x2C<code> [static]</code></td>
+          <td class="memname">const uint8_t <a class="el" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d">Max517Dac::DEFAULT_ADDRESS</a> = 0x2C<code> [static]</code></td>
         </tr>
       </table>
 </div>
@@ -275,7 +273,7 @@ Static Public Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 7 2012 13:20:12 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 7 2012 14:41:43 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
