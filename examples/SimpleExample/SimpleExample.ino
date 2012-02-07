@@ -2,6 +2,20 @@
  * SimpleExample.ino
  *
  * This example demonstrates the usage of the MAX517 8-bit DAC library.
+ * The diagram below shows the pinout of the 8 pin DIP version of the 
+ * device and its connections to the Arduino Uno.
+ *
+ *         -------.   .-------
+ *        |        \_/        |
+ *  A0 <--| OUT0         REF0 |<-- 5V
+ *        |                   |
+ * GND -->| GND   MAX517  VDD |<-- 5V
+ *        |                   |
+ *  A5 -->| SCL           AD0 |<-- GND
+ *        |                   |
+ *  A4 -->| SDA           AD1 |<-- GND
+ *        |                   |
+ *         ------------------- 
  *
  * Copyright (c) 2012 Jordan Goulder. All rights reserved.
  *
