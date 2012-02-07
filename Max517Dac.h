@@ -42,7 +42,7 @@ class Max517Dac
 
       /**
        * Default I2C address of the DAC.
-       * @note This assumes that A0 and A1 of the DAC are tied to ground.
+       * @note This assumes that AD0 and AD1 of the DAC are tied to ground.
        */
       static const int DEFAULT_ADDRESS = 0x2C;
 
