@@ -32,6 +32,9 @@ void setup()
 {
    // Initialize the serial interface
    Serial.begin(9600); 
+
+   // Reset the DAC output
+   dac.resetOutput();
 }
 
 void loop()
@@ -49,7 +52,7 @@ void loop()
    Serial.println(adcInputValue);
 
    // Update the DAC with a new value
-   dac.setOutput(dacOutputValue++);
+   dac.setOutput(++dacOutputValue);
  
    // Wait a little bit for things to settle out
    delay(100);                     
