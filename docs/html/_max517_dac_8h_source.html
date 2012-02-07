@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>MAX 517 8-bit DAC Library: Max517Dac.h Source File</title>
+<title>MAX517 8-bit DAC Library: Max517Dac.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">MAX 517 8-bit DAC Library
+   <div id="projectname">MAX517 8-bit DAC Library
    
    </div>
    
@@ -79,49 +79,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="_max517_dac_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
 <a name="l00002"></a>00002 <span class="comment"> * Max517Dac.h</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
-<a name="l00004"></a>00004 <span class="comment"> * Copyright (c) 2012 Jordan Goulder. All rights reserved.</span>
+<a name="l00004"></a>00004 <span class="comment"> * MAX517 8-bit DAC library definition.</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
-<a name="l00006"></a>00006 <span class="comment"> * This library is free software; you can redistribute it and/or</span>
-<a name="l00007"></a>00007 <span class="comment"> * modify it under the terms of the GNU Lesser General Public</span>
-<a name="l00008"></a>00008 <span class="comment"> * License as published by the Free Software Foundation; either</span>
-<a name="l00009"></a>00009 <span class="comment"> * version 3 of the License, or (at your option) any later version.</span>
-<a name="l00010"></a>00010 <span class="comment"> *</span>
-<a name="l00011"></a>00011 <span class="comment"> * This library is distributed in the hope that it will be useful,</span>
-<a name="l00012"></a>00012 <span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
-<a name="l00013"></a>00013 <span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
-<a name="l00014"></a>00014 <span class="comment"> * Lesser General Public License for more details.</span>
-<a name="l00015"></a>00015 <span class="comment"> *</span>
-<a name="l00016"></a>00016 <span class="comment"> * You should have received a copy of the GNU Lesser General Public</span>
-<a name="l00017"></a>00017 <span class="comment"> * License along with this library; if not, write to the Free Software</span>
-<a name="l00018"></a>00018 <span class="comment"> * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</span>
-<a name="l00019"></a>00019 <span class="comment"> */</span> 
-<a name="l00020"></a>00020 
-<a name="l00029"></a>00029 <span class="preprocessor">#ifndef MAX517DAC_H</span>
-<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#define MAX517DAC_H</span>
-<a name="l00031"></a>00031 <span class="preprocessor"></span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;Arduino.h&gt;</span>
-<a name="l00033"></a>00033 
-<a name="l00038"></a><a class="code" href="class_max517_dac.html">00038</a> <span class="keyword">class </span><a class="code" href="class_max517_dac.html" title="MAX 517 8-bit DAC Device Class.">Max517Dac</a>
-<a name="l00039"></a>00039 {
-<a name="l00040"></a>00040    <span class="keyword">public</span>:
-<a name="l00045"></a><a class="code" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2">00045</a>       <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2" title="Default I2C address of the DAC.">DEFAULT_ADDRESS</a> = 0x2C;
-<a name="l00046"></a>00046 
-<a name="l00052"></a>00052       <a class="code" href="class_max517_dac.html#a8769cf752fdb8d8053aebe5d880eda02" title="Create a new MAX517 device.">Max517Dac</a>(<span class="keywordtype">int</span> address = <a class="code" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2" title="Default I2C address of the DAC.">DEFAULT_ADDRESS</a>);
-<a name="l00053"></a>00053       
-<a name="l00063"></a>00063       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#a58336880528a7540d6e90c091339bb5f" title="Reset the DAC output back to 0.">resetOutput</a>(<span class="keywordtype">bool</span> <a class="code" href="class_max517_dac.html#a675efc082bcdd58dc8b253e98a703ebe" title="Power down the device.">powerDown</a> = <span class="keyword">false</span>) <span class="keyword">const</span>;
-<a name="l00064"></a>00064 
-<a name="l00075"></a>00075       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#ae937bca3597062535f838c2159930e83" title="Change the value of the DAC.">setOutput</a>(<span class="keywordtype">int</span> value, <span class="keywordtype">bool</span> <a class="code" href="class_max517_dac.html#a675efc082bcdd58dc8b253e98a703ebe" title="Power down the device.">powerDown</a> = <span class="keyword">false</span>) <span class="keyword">const</span>;
-<a name="l00076"></a>00076 
-<a name="l00083"></a>00083       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#a675efc082bcdd58dc8b253e98a703ebe" title="Power down the device.">powerDown</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;
-<a name="l00084"></a>00084 
-<a name="l00091"></a>00091       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#a9a304725961f10f18e3f325ea036d6ac" title="Power up the device.">powerUp</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093    <span class="keyword">private</span>:
-<a name="l00094"></a>00094       <span class="keywordtype">int</span> mAddress;
-<a name="l00095"></a>00095       <span class="keywordtype">void</span> mSendCommand(<span class="keywordtype">int</span> command, <span class="keywordtype">int</span> output) <span class="keyword">const</span>;
-<a name="l00096"></a>00096 };
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098 <span class="preprocessor">#endif</span>
+<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2012 Jordan Goulder. All rights reserved.</span>
+<a name="l00007"></a>00007 <span class="comment"> *</span>
+<a name="l00008"></a>00008 <span class="comment"> * This library is free software: you can redistribute it and/or modify</span>
+<a name="l00009"></a>00009 <span class="comment"> * it under the terms of the GNU Lesser General Public License as published by</span>
+<a name="l00010"></a>00010 <span class="comment"> * the Free Software Foundation, either version 3 of the License, or</span>
+<a name="l00011"></a>00011 <span class="comment"> * (at your option) any later version.</span>
+<a name="l00012"></a>00012 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> * This library is distributed in the hope that it will be useful,</span>
+<a name="l00014"></a>00014 <span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<a name="l00015"></a>00015 <span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<a name="l00016"></a>00016 <span class="comment"> * GNU Lesser General Public License for more details.</span>
+<a name="l00017"></a>00017 <span class="comment"> *</span>
+<a name="l00018"></a>00018 <span class="comment"> * You should have received a copy of the GNU Lesser General Public License</span>
+<a name="l00019"></a>00019 <span class="comment"> * along with this library.  If not see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<a name="l00020"></a>00020 <span class="comment"> */</span> 
+<a name="l00021"></a>00021 
+<a name="l00030"></a>00030 <span class="preprocessor">#ifndef MAX517DAC_H</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#define MAX517DAC_H</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;Arduino.h&gt;</span>
+<a name="l00034"></a>00034 
+<a name="l00039"></a><a class="code" href="class_max517_dac.html">00039</a> <span class="keyword">class </span><a class="code" href="class_max517_dac.html" title="MAX517 8-bit DAC Device Class.">Max517Dac</a>
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041    <span class="keyword">public</span>:
+<a name="l00042"></a>00042 
+<a name="l00047"></a><a class="code" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2">00047</a>       <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2" title="Default I2C address of the DAC.">DEFAULT_ADDRESS</a> = 0x2C;
+<a name="l00048"></a>00048 
+<a name="l00054"></a>00054       <a class="code" href="class_max517_dac.html#a8769cf752fdb8d8053aebe5d880eda02" title="Create a new MAX517 device.">Max517Dac</a>(<span class="keywordtype">int</span> address = <a class="code" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2" title="Default I2C address of the DAC.">DEFAULT_ADDRESS</a>);
+<a name="l00055"></a>00055       
+<a name="l00065"></a>00065       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#ae1c33de73a558a11c9551bb971910618" title="Reset the DAC output back to 0.">resetOutput</a>(<span class="keywordtype">bool</span> powerDownMode = <span class="keyword">false</span>) <span class="keyword">const</span>;
+<a name="l00066"></a>00066 
+<a name="l00077"></a>00077       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#a049becdc37238cdc34ac31d7ed7c193a" title="Change the value of the DAC.">setOutput</a>(<span class="keywordtype">int</span> value, <span class="keywordtype">bool</span> powerDownMode = <span class="keyword">false</span>) <span class="keyword">const</span>;
+<a name="l00078"></a>00078 
+<a name="l00085"></a>00085       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#a675efc082bcdd58dc8b253e98a703ebe" title="Power down the device.">powerDown</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;
+<a name="l00086"></a>00086 
+<a name="l00093"></a>00093       <span class="keywordtype">void</span> <a class="code" href="class_max517_dac.html#a9a304725961f10f18e3f325ea036d6ac" title="Power up the device.">powerUp</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095    <span class="keyword">private</span>:
+<a name="l00096"></a>00096 
+<a name="l00100"></a>00100       <span class="keywordtype">int</span> mAddress;
+<a name="l00101"></a>00101 
+<a name="l00110"></a>00110       <span class="keywordtype">void</span> mSendCommand(<span class="keywordtype">int</span> command, <span class="keywordtype">int</span> output) <span class="keyword">const</span>;
+<a name="l00111"></a>00111 };
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -141,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 6 2012 23:50:54 for MAX 517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 7 2012 10:56:20 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

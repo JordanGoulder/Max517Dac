@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>MAX 517 8-bit DAC Library: Max517Dac Class Reference</title>
+<title>MAX517 8-bit DAC Library: Max517Dac Class Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">MAX 517 8-bit DAC Library
+   <div id="projectname">MAX517 8-bit DAC Library
    
    </div>
    
@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="Max517Dac" -->
-<p>MAX 517 8-bit DAC Device Class.  
+<p>MAX517 8-bit DAC Device Class.  
  <a href="class_max517_dac.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_max517_dac_8h_source.html">Max517Dac.h</a>&gt;</code></p>
@@ -94,10 +94,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a8769cf752fdb8d8053aebe5d880eda02">Max517Dac</a> (int address=<a class="el" href="class_max517_dac.html#a4155addd434b3a1e519991657edddad2">DEFAULT_ADDRESS</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new MAX517 device.  <a href="#a8769cf752fdb8d8053aebe5d880eda02"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a58336880528a7540d6e90c091339bb5f">resetOutput</a> (bool powerDown=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the DAC output back to 0.  <a href="#a58336880528a7540d6e90c091339bb5f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#ae937bca3597062535f838c2159930e83">setOutput</a> (int value, bool powerDown=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the value of the DAC.  <a href="#ae937bca3597062535f838c2159930e83"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#ae1c33de73a558a11c9551bb971910618">resetOutput</a> (bool powerDownMode=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the DAC output back to 0.  <a href="#ae1c33de73a558a11c9551bb971910618"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a049becdc37238cdc34ac31d7ed7c193a">setOutput</a> (int value, bool powerDownMode=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the value of the DAC.  <a href="#a049becdc37238cdc34ac31d7ed7c193a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a675efc082bcdd58dc8b253e98a703ebe">powerDown</a> (void) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power down the device.  <a href="#a675efc082bcdd58dc8b253e98a703ebe"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a9a304725961f10f18e3f325ea036d6ac">powerUp</a> (void) const </td></tr>
@@ -108,8 +108,8 @@ Static Public Attributes</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default I2C address of the DAC.  <a href="#a4155addd434b3a1e519991657edddad2"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>MAX 517 8-bit DAC Device Class. </p>
-<p>This class provides a simple interface to the MAX 517 8-bit DAC. </p>
+<div class="textblock"><p>MAX517 8-bit DAC Device Class. </p>
+<p>This class provides a simple interface to the MAX517 8-bit DAC. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8769cf752fdb8d8053aebe5d880eda02"></a><!-- doxytag: member="Max517Dac::Max517Dac" ref="a8769cf752fdb8d8053aebe5d880eda02" args="(int address=DEFAULT_ADDRESS)" -->
 <div class="memitem">
@@ -177,7 +177,7 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a58336880528a7540d6e90c091339bb5f"></a><!-- doxytag: member="Max517Dac::resetOutput" ref="a58336880528a7540d6e90c091339bb5f" args="(bool powerDown=false) const " -->
+<a class="anchor" id="ae1c33de73a558a11c9551bb971910618"></a><!-- doxytag: member="Max517Dac::resetOutput" ref="ae1c33de73a558a11c9551bb971910618" args="(bool powerDownMode=false) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -185,7 +185,7 @@ Static Public Attributes</h2></td></tr>
           <td class="memname">void Max517Dac::resetOutput </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>powerDown</em> = <code>false</code></td><td>)</td>
+          <td class="paramname"><em>powerDownMode</em> = <code>false</code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -195,7 +195,7 @@ Static Public Attributes</h2></td></tr>
 <p>Reset the DAC output back to 0. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">powerDown</td><td>Put the device in power down mode after the commnad is exectued.</td></tr>
+    <tr><td class="paramname">powerDownMode</td><td>Put the device in power down mode after the commnad is exectued.</td></tr>
   </table>
   </dd>
 </dl>
@@ -203,7 +203,7 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae937bca3597062535f838c2159930e83"></a><!-- doxytag: member="Max517Dac::setOutput" ref="ae937bca3597062535f838c2159930e83" args="(int value, bool powerDown=false) const " -->
+<a class="anchor" id="a049becdc37238cdc34ac31d7ed7c193a"></a><!-- doxytag: member="Max517Dac::setOutput" ref="a049becdc37238cdc34ac31d7ed7c193a" args="(int value, bool powerDownMode=false) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -217,7 +217,7 @@ Static Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>powerDown</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>powerDownMode</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -232,7 +232,7 @@ Static Public Attributes</h2></td></tr>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td>Value used to set the DAC. </td></tr>
-    <tr><td class="paramname">powerDown</td><td>Put the device in power down mode after the commnad is exectued.</td></tr>
+    <tr><td class="paramname">powerDownMode</td><td>Put the device in power down mode after the commnad is exectued.</td></tr>
   </table>
   </dd>
 </dl>
@@ -275,7 +275,7 @@ Static Public Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 6 2012 23:50:54 for MAX 517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 7 2012 10:56:20 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

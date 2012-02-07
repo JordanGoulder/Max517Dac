@@ -1,21 +1,22 @@
 /*
  * Max517Dac.h
  *
+ * MAX517 8-bit DAC library definition.
+ *
  * Copyright (c) 2012 Jordan Goulder. All rights reserved.
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library.  If not see <http://www.gnu.org/licenses/>.
  */ 
 
 /**
@@ -32,12 +33,13 @@
 #include <Arduino.h>
 
 /**
- * MAX 517 8-bit DAC Device Class.
- * This class provides a simple interface to the MAX 517 8-bit DAC.
+ * MAX517 8-bit DAC Device Class.
+ * This class provides a simple interface to the MAX517 8-bit DAC.
  */
 class Max517Dac
 {
    public:
+
       /**
        * Default I2C address of the DAC.
        * @note This assumes that A0 and A1 of the DAC are tied to ground.
@@ -54,25 +56,25 @@ class Max517Dac
       /**
        * Reset the DAC output back to 0.
        *
-       * @param powerDown Put the device in power down mode after the
+       * @param powerDownMode Put the device in power down mode after the
        * commnad is exectued.
        *
        * @note The output of the device is left floating while in the
        * power down mode.
        */
-      void resetOutput(bool powerDown = false) const;
+      void resetOutput(bool powerDownMode = false) const;
 
       /**
        * Change the value of the DAC.
        *
        * @param value Value used to set the DAC.
-       * @param powerDown Put the device in power down mode after the
+       * @param powerDownMode Put the device in power down mode after the
        * commnad is exectued.
        *
        * @note The output of the device is left floating while in the
        * power down mode.
        */
-      void setOutput(int value, bool powerDown = false) const;
+      void setOutput(int value, bool powerDownMode = false) const;
 
       /**
        * Power down the device.
@@ -91,7 +93,20 @@ class Max517Dac
       void powerUp(void) const;
 
    private:
+
+      /**
+       * I2C address of the device
+       */
       int mAddress;
+
+      /**
+       * Performs the actual I2C write to the device
+       * 
+       * @param command Command used to control the device
+       * @parma output  Value to send as the output byte of the message
+       * 
+       * @note Set output to NO_OUTPUT to only send the command byte
+       */
       void mSendCommand(int command, int output) const;
 };
 

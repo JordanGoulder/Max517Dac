@@ -1,23 +1,24 @@
 /*
  * Max517Dac.cpp
  *
+ * MAX517 8-bit DAC library implimentation.
+ *
  * Copyright (c) 2012 Jordan Goulder. All rights reserved.
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library.  If not see <http://www.gnu.org/licenses/>.
  */
-
+ 
 #include <Wire.h>
 #include "Max517Dac.h"
 
@@ -34,11 +35,11 @@ Max517Dac::Max517Dac(int address)
 }
 
 void
-Max517Dac::resetOutput(bool powerDown) const
+Max517Dac::resetOutput(bool powerDownMode) const
 {
    int command = CMD_RESET;
 
-   if (powerDown)
+   if (powerDownMode)
    {
       command |= CMD_POWER_DOWN;
    }
@@ -47,11 +48,11 @@ Max517Dac::resetOutput(bool powerDown) const
 }
 
 void
-Max517Dac::setOutput(int output, bool powerDown) const
+Max517Dac::setOutput(int output, bool powerDownMode) const
 {
    int command = CMD_SET_OUTPUT;
   
-   if (powerDown)
+   if (powerDownMode)
    {
       command |= CMD_POWER_DOWN;
    }
