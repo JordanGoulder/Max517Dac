@@ -22,13 +22,12 @@
 #include <Wire.h>
 #include "Max517Dac.h"
 
-static const int NO_OUTPUT       = -1;
-static const int CMD_RESET       = 0x10;
-static const int CMD_SET_OUTPUT  = 0x00;
-static const int CMD_POWER_DOWN  = 0x08;
-static const int CMD_POWER_UP    = 0x00;
+const uint8_t CMD_RESET       = 0x10;
+const uint8_t CMD_SET_OUTPUT  = 0x00;
+const uint8_t CMD_POWER_DOWN  = 0x08;
+const uint8_t CMD_POWER_UP    = 0x00;
 
-Max517Dac::Max517Dac(int address)
+Max517Dac::Max517Dac(uint8_t address)
 {
    mAddress = address;
    Wire.begin();
@@ -37,50 +36,50 @@ Max517Dac::Max517Dac(int address)
 void
 Max517Dac::resetOutput(bool powerDownMode) const
 {
-   int command = CMD_RESET;
+   uint8_t command = CMD_RESET;
 
    if (powerDownMode)
    {
       command |= CMD_POWER_DOWN;
    }
   
-   mSendCommand(command, NO_OUTPUT);
+   mSendCommand(command);
 }
 
 void
-Max517Dac::setOutput(int output, bool powerDownMode) const
+Max517Dac::setOutput(uint8_t output, bool powerDownMode) const
 {
-   int command = CMD_SET_OUTPUT;
+   uint8_t command = CMD_SET_OUTPUT;
   
    if (powerDownMode)
    {
       command |= CMD_POWER_DOWN;
    }
   
-   mSendCommand(command, output);
+   mSendCommand(command, output, true);
 }
 
 void
-Max517Dac::powerDown(void) const
+Max517Dac::powerDown() const
 {  
-   mSendCommand(CMD_POWER_DOWN, NO_OUTPUT);
+   mSendCommand(CMD_POWER_DOWN);
 }
 
 void
-Max517Dac::powerUp(void) const
+Max517Dac::powerUp() const
 {  
-   mSendCommand(CMD_POWER_UP, NO_OUTPUT);
+   mSendCommand(CMD_POWER_UP);
 }
 
 void
-Max517Dac::mSendCommand(int command, int output) const
+Max517Dac::mSendCommand(uint8_t command, uint8_t output, bool sendOutput) const
 {
    Wire.beginTransmission(mAddress);
-   Wire.write(byte(command));
+   Wire.write(command);
 
-   if (NO_OUTPUT != output)
+   if (sendOutput)
    {
-      Wire.write(byte(output));
+      Wire.write(output);
    }
 
    Wire.endTransmission();

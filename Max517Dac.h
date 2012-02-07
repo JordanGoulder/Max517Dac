@@ -34,7 +34,7 @@
 
 /**
  * MAX517 8-bit DAC Device Class.
- * This class provides a simple interface to the MAX517 8-bit DAC.
+ * This class provides a simple uint8_terface to the MAX517 8-bit DAC.
  */
 class Max517Dac
 {
@@ -42,16 +42,17 @@ class Max517Dac
 
       /**
        * Default I2C address of the DAC.
+       *
        * @note This assumes that AD0 and AD1 of the DAC are tied to ground.
        */
-      static const int DEFAULT_ADDRESS = 0x2C;
+      static const uint8_t DEFAULT_ADDRESS = 0x2C;
 
       /**
        * Create a new MAX517 device.
        *
        * @param address The I2C address of the device.
        */
-      Max517Dac(int address = DEFAULT_ADDRESS);
+      Max517Dac(uint8_t address = DEFAULT_ADDRESS);
       
       /**
        * Reset the DAC output back to 0.
@@ -74,7 +75,7 @@ class Max517Dac
        * @note The output of the device is left floating while in the
        * power down mode.
        */
-      void setOutput(int value, bool powerDownMode = false) const;
+      void setOutput(uint8_t value, bool powerDownMode = false) const;
 
       /**
        * Power down the device.
@@ -82,7 +83,7 @@ class Max517Dac
        * @note The output of the device is left floating while in the
        * power down mode.
        */
-      void powerDown(void) const;
+      void powerDown() const;
 
       /**
        * Power up the device.
@@ -90,24 +91,25 @@ class Max517Dac
        * @note The output is restored to the last output value written
        * to the device.
        */
-      void powerUp(void) const;
+      void powerUp() const;
 
    private:
 
       /**
        * I2C address of the device
        */
-      int mAddress;
+      uint8_t mAddress;
 
       /**
        * Performs the actual I2C write to the device
        * 
-       * @param command Command used to control the device
-       * @parma output  Value to send as the output byte of the message
-       * 
-       * @note Set output to NO_OUTPUT to only send the command byte
+       * @param command Command used to control the device.
+       * @param output  Value to send as the output byte of the message.
+       * @param sendOuput Set this to true to indicate that the output should be sent.
        */
-      void mSendCommand(int command, int output) const;
+      void mSendCommand(uint8_t  command,
+                        uint8_t  output      = 0,
+                        bool     sendOutput  = false) const;
 };
 
 #endif
