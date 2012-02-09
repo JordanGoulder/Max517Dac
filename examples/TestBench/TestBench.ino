@@ -33,14 +33,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <stdlib.h>
 #include <Wire.h>
 #include <Max517Dac.h>
 
-const int   adcInputPin       = A0;    // Pin used to read analog input
+const int      adcInputPin    = A0;    // Pin used to read analog input
+const uint8_t  adcError       = 1;     // Acceptable ADC read error when comparing
+                                       // to the output DAC
 int         adcInputValue     = 0;     // Value read form ADC
 int         dacOutputValue    = 0;     // Value written to DAC
-int         passCount         = 0;
-int         failCount         = 0;
+int         passCount         = 0;     // Count of the number tests that passed
+int         failCount         = 0;     // Count of the number of tests that failed
 
 typedef enum testState_t
 {
@@ -111,6 +114,11 @@ void waitForKey()
    }
 }
 
+bool compareWithError(uint8_t a, uint8_t b, uint8_t allowableError)
+{
+   return (abs(a - b) <= allowableError);
+}
+
 int sampleAdc()
 {
    int sample = 0;
@@ -124,7 +132,7 @@ void testStateInit()
    passCount = 0;
    failCount = 0;
 
-   Serial.println("\n\nMAX517 Test Bench");
+   Serial.println("\n\nMAX517 DAC Library Test Bench");
 }
 
 void testStatePowerOnReset()
@@ -135,7 +143,7 @@ void testStatePowerOnReset()
 
    Serial.print("Power-On Reset Value = ");
    Serial.println(adcInputValue, DEC);
-   if (adcInputValue == 0)
+   if (compareWithError(0, adcInputValue,  adcError))
    {
       passCount++;
       Serial.println("PASS");
@@ -149,16 +157,20 @@ void testStatePowerOnReset()
 
 void testStateSetOutput()
 {
+   uint8_t dacOutput;
+
    Serial.println("\nTesting setOutput()");
-   Serial.println("Setting DAC Output to 128");
-   if (dac.setOutput(128))
+   dacOutput = 128;
+   Serial.print("Setting DAC Output to ");
+   Serial.println(dacOutput, DEC);
+   if (dac.setOutput(dacOutput))
    {
       delay(100);
       Serial.print("Reading ADC Input: ");
       adcInputValue = sampleAdc();
       Serial.println(adcInputValue, DEC);
     
-      if (adcInputValue == 128)
+      if (compareWithError(dacOutput, adcInputValue, adcError))
       {
          passCount++;
          Serial.println("PASS");
@@ -189,7 +201,7 @@ void testStateResetOutput()
       adcInputValue = sampleAdc();
       Serial.println(adcInputValue, DEC);
     
-      if (adcInputValue == 0)
+      if (compareWithError(0, adcInputValue, adcError))
       {
          passCount++;
          Serial.println("PASS");
@@ -211,10 +223,13 @@ void testStateResetOutput()
 
 void testStatePowerDown()
 {
+   uint8_t dacOutput;
+
    Serial.println("\nTesting powerDown()");
 
    Serial.println("Setting DAC to full output.");
-   if (!dac.setOutput(255))
+   dacOutput = 255;
+   if (!dac.setOutput(dacOutput))
    {
       Serial.print("FAIL");
       Serial.println(" I2C Write Failed");
@@ -226,7 +241,7 @@ void testStatePowerDown()
    Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
-   if (adcInputValue != 255)
+   if (!compareWithError(dacOutput, adcInputValue, adcError))
    {
       Serial.print("FAIL");
       Serial.println(" Input/Output mismatch");
@@ -247,7 +262,7 @@ void testStatePowerDown()
    Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
-   if (adcInputValue == 255)
+   if (compareWithError(dacOutput, adcInputValue, adcError))
    {
       Serial.print("FAIL");
       Serial.println(" Input/Output mismatch");
@@ -268,7 +283,7 @@ void testStatePowerDown()
    Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
-   if (adcInputValue == 0)
+   if (compareWithError(0, adcInputValue, adcError))
    {
       Serial.print("FAIL");
       Serial.println(" Input/Output mismatch");
@@ -276,8 +291,11 @@ void testStatePowerDown()
       return;
    }
 
-   Serial.println("Setting DAC to 128, but staying in power down mode.");
-   if(!dac.setOutput(128, true))
+   dacOutput = 128;
+   Serial.print("Setting DAC to ");
+   Serial.print(dacOutput);
+   Serial.println(", but staying in power down mode.");
+   if(!dac.setOutput(dacOutput, true))
    {
       Serial.print("FAIL");
       Serial.println(" I2C Write Failed");
@@ -289,7 +307,7 @@ void testStatePowerDown()
    Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
-   if (adcInputValue == 128)
+   if (compareWithError(dacOutput, adcInputValue, adcError))
    {
       Serial.print("FAIL");
       Serial.println(" Input/Output mismatch");
@@ -310,7 +328,7 @@ void testStatePowerDown()
    Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
-   if (adcInputValue != 128)
+   if (!compareWithError(dacOutput, adcInputValue, adcError))
    {
       Serial.print("FAIL");
       Serial.println(" Input/Output mismatch");
