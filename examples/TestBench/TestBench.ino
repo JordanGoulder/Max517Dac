@@ -217,7 +217,7 @@ void testStatePowerDown()
    if (!dac.setOutput(255))
    {
       Serial.print("FAIL");
-      Serial.print(" I2C Write Failed");
+      Serial.println(" I2C Write Failed");
       failCount++;
       return;
    }
@@ -238,7 +238,7 @@ void testStatePowerDown()
    if(!dac.powerDown())
    {
       Serial.print("FAIL");
-      Serial.print(" I2C Write Failed");
+      Serial.println(" I2C Write Failed");
       failCount++;
       return;
    }
@@ -255,11 +255,32 @@ void testStatePowerDown()
       return;
    }
 
+   Serial.println("Resetting DAC output, but staying in power down mode.");
+   if(!dac.resetOutput(true))
+   {
+      Serial.print("FAIL");
+      Serial.println(" I2C Write Failed");
+      failCount++;
+      return;
+   }
+
+   delay(100);
+   Serial.print("Reading ADC Input: ");
+   adcInputValue = sampleAdc();
+   Serial.println(adcInputValue, DEC);
+   if (adcInputValue == 0)
+   {
+      Serial.print("FAIL");
+      Serial.println(" Input/Output mismatch");
+      failCount++;
+      return;
+   }
+
    Serial.println("Setting DAC to 128, but staying in power down mode.");
    if(!dac.setOutput(128, true))
    {
       Serial.print("FAIL");
-      Serial.print(" I2C Write Failed");
+      Serial.println(" I2C Write Failed");
       failCount++;
       return;
    }
@@ -280,7 +301,7 @@ void testStatePowerDown()
    if(!dac.powerUp())
    {
       Serial.print("FAIL");
-      Serial.print(" I2C Write Failed");
+      Serial.println(" I2C Write Failed");
       failCount++;
       return;
    }
