@@ -45,6 +45,7 @@ int         dacOutputValue    = 0;     // Value written to DAC
 int         passCount         = 0;     // Count of the number tests that passed
 int         failCount         = 0;     // Count of the number of tests that failed
 
+// Test States
 typedef enum testState_t
 {
    TEST_STATE_INIT,
@@ -55,6 +56,7 @@ typedef enum testState_t
    TEST_STATE_DONE
 } testState_t;
 
+// Start out in the INIT state
 testState_t testState = TEST_STATE_INIT;
 
 // Create a new DAC object
@@ -68,6 +70,7 @@ void setup()
 
 void loop()
 {
+   // Call the correct test based on the state
    switch (testState)
    {
       case TEST_STATE_INIT:
@@ -101,40 +104,54 @@ void loop()
          testState = TEST_STATE_INIT;
          break;
    }
+
+   // Wait for the user to press a key before continuing
    waitForKey();
 }
 
+// Wait until the user presses a key
 void waitForKey()
 {
+   // Let the user know we are waiting for a key
    Serial.println("Press any key...");
+   // Wait for input
    while(Serial.available() == 0);
+   // Read all the input out of the buffer
    while(Serial.available() > 0)
    {
       Serial.read();
    }
 }
 
+// Compare two values accounting for error
 bool compareWithError(uint8_t a, uint8_t b, uint8_t allowableError)
 {
    return (abs(a - b) <= allowableError);
 }
 
+// Sample the ADC device and convert it to an 8-bit value
 int sampleAdc()
 {
    int sample = 0;
+   // Read the sample
    sample += analogRead(adcInputPin);            
+   // Covert to 8-bits
    sample >>= 2;
    return (sample);
 }
 
+// Init things before starting tests
 void testStateInit()
 {
+   // Clear out pass/fail counts
    passCount = 0;
    failCount = 0;
 
    Serial.println("\n\nMAX517 DAC Library Test Bench");
 }
 
+// Test the Power-On Reset value
+// This should be zero
 void testStatePowerOnReset()
 {
    Serial.println("\nTesting power-on reset value.");
@@ -155,6 +172,9 @@ void testStatePowerOnReset()
    }
 }
 
+// Test the setOutput function
+//
+// The ADC should read the same value as was set to the output
 void testStateSetOutput()
 {
    uint8_t dacOutput;
@@ -190,6 +210,9 @@ void testStateSetOutput()
    }
 }
 
+// Test the resetOutput fucntion
+//
+// The DAC output should go to zero and the ADC should read zero
 void testStateResetOutput()
 {
    Serial.println("\nTesting resetOutput()");
@@ -221,6 +244,10 @@ void testStateResetOutput()
    }
 }
 
+// Test the powerDown/powerUp functionality
+//
+// The output should float during power down and anything that sets
+// the DAC should not affect the output until power up
 void testStatePowerDown()
 {
    uint8_t dacOutput;
@@ -340,6 +367,9 @@ void testStatePowerDown()
    passCount++;
 }
 
+// We are done with tests
+//
+// Report the number of pass/fails
 void testStateDone()
 {
    Serial.println("");
