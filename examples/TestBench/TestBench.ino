@@ -214,34 +214,91 @@ void testStatePowerDown()
    Serial.println("\nTesting powerDown()");
 
    Serial.println("Setting DAC to full output.");
-   dac.setOutput(255);
+   if (!dac.setOutput(255))
+   {
+      Serial.print("FAIL");
+      Serial.print(" I2C Write Failed");
+      failCount++;
+      return;
+   }
 
+   delay(100);
    Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
+   if (adcInputValue != 255)
+   {
+      Serial.print("FAIL");
+      Serial.println(" Input/Output mismatch");
+      failCount++;
+      return;
+   }
 
    Serial.println("Powering down DAC");
-   dac.powerDown();
+   if(!dac.powerDown())
+   {
+      Serial.print("FAIL");
+      Serial.print(" I2C Write Failed");
+      failCount++;
+      return;
+   }
 
-   Serial.println("Reading ADC Input: ");
-   delay(1000);
+   delay(500);
+   Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
+   if (adcInputValue == 255)
+   {
+      Serial.print("FAIL");
+      Serial.println(" Input/Output mismatch");
+      failCount++;
+      return;
+   }
 
-   Serial.println("Setting DAC to 128 but staying in power down mode.");
-   dac.setOutput(128, true);
+   Serial.println("Setting DAC to 128, but staying in power down mode.");
+   if(!dac.setOutput(128, true))
+   {
+      Serial.print("FAIL");
+      Serial.print(" I2C Write Failed");
+      failCount++;
+      return;
+   }
 
-   Serial.println("Reading ADC Input: ");
    delay(100);
+   Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
+   if (adcInputValue == 128)
+   {
+      Serial.print("FAIL");
+      Serial.println(" Input/Output mismatch");
+      failCount++;
+      return;
+   }
 
    Serial.println("Powering up DAC");
-   dac.powerUp();
-   Serial.println("Reading ADC Input: ");
+   if(!dac.powerUp())
+   {
+      Serial.print("FAIL");
+      Serial.print(" I2C Write Failed");
+      failCount++;
+      return;
+   }
+
    delay(100);
+   Serial.print("Reading ADC Input: ");
    adcInputValue = sampleAdc();
    Serial.println(adcInputValue, DEC);
+   if (adcInputValue != 128)
+   {
+      Serial.print("FAIL");
+      Serial.println(" Input/Output mismatch");
+      failCount++;
+      return;
+   }
+
+   Serial.println("PASS");
+   passCount++;
 }
 
 void testStateDone()
