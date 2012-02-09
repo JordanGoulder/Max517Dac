@@ -94,14 +94,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#acf4b72598212276f19cc1b3bfd04b657">Max517Dac</a> (uint8_t address=<a class="el" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d">DEFAULT_ADDRESS</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new MAX517 device.  <a href="#acf4b72598212276f19cc1b3bfd04b657"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#ae1c33de73a558a11c9551bb971910618">resetOutput</a> (bool powerDownMode=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the DAC output back to 0.  <a href="#ae1c33de73a558a11c9551bb971910618"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#ac963cc1ac971aa25a2a3350c53f27dd1">setOutput</a> (uint8_t value, bool powerDownMode=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the value of the DAC.  <a href="#ac963cc1ac971aa25a2a3350c53f27dd1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#af4d791898955546f3e8736c7ffb530a2">powerDown</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power down the device.  <a href="#af4d791898955546f3e8736c7ffb530a2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#af8b379dd2cea723ad6f82a0f12df50e6">powerUp</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power up the device.  <a href="#af8b379dd2cea723ad6f82a0f12df50e6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a981c6090f889e6f985b1e9df991bef29">resetOutput</a> (bool powerDownMode=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the DAC output back to 0.  <a href="#a981c6090f889e6f985b1e9df991bef29"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a6db7c28c7ec9ecde21cae4393958e933">setOutput</a> (uint8_t value, bool powerDownMode=false) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the value of the DAC.  <a href="#a6db7c28c7ec9ecde21cae4393958e933"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a5ee332725b07fc6f168e4f60421a51fc">powerDown</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power down the device.  <a href="#a5ee332725b07fc6f168e4f60421a51fc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#aa4a1d07e46098ab5ca5070203f685a92">powerUp</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Power up the device.  <a href="#aa4a1d07e46098ab5ca5070203f685a92"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d">DEFAULT_ADDRESS</a> = 0x2C</td></tr>
@@ -137,12 +137,12 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="af4d791898955546f3e8736c7ffb530a2"></a><!-- doxytag: member="Max517Dac::powerDown" ref="af4d791898955546f3e8736c7ffb530a2" args="() const " -->
+<a class="anchor" id="a5ee332725b07fc6f168e4f60421a51fc"></a><!-- doxytag: member="Max517Dac::powerDown" ref="a5ee332725b07fc6f168e4f60421a51fc" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Max517Dac::powerDown </td>
+          <td class="memname">bool Max517Dac::powerDown </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -152,16 +152,21 @@ Static Public Attributes</h2></td></tr>
 <div class="memdoc">
 
 <p>Power down the device. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>I2C write status.<br/>
+<br/>
+ true: I2C write successful.<br/>
+ false: I2C write failed.<br/>
+</dd></dl>
 <dl class="note"><dt><b>Note:</b></dt><dd>The output of the device is left floating while in the power down mode. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="af8b379dd2cea723ad6f82a0f12df50e6"></a><!-- doxytag: member="Max517Dac::powerUp" ref="af8b379dd2cea723ad6f82a0f12df50e6" args="() const " -->
+<a class="anchor" id="aa4a1d07e46098ab5ca5070203f685a92"></a><!-- doxytag: member="Max517Dac::powerUp" ref="aa4a1d07e46098ab5ca5070203f685a92" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Max517Dac::powerUp </td>
+          <td class="memname">bool Max517Dac::powerUp </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -171,16 +176,21 @@ Static Public Attributes</h2></td></tr>
 <div class="memdoc">
 
 <p>Power up the device. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>I2C write status.<br/>
+<br/>
+ true: I2C write successful.<br/>
+ false: I2C write failed.<br/>
+</dd></dl>
 <dl class="note"><dt><b>Note:</b></dt><dd>The output is restored to the last output value written to the device. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ae1c33de73a558a11c9551bb971910618"></a><!-- doxytag: member="Max517Dac::resetOutput" ref="ae1c33de73a558a11c9551bb971910618" args="(bool powerDownMode=false) const " -->
+<a class="anchor" id="a981c6090f889e6f985b1e9df991bef29"></a><!-- doxytag: member="Max517Dac::resetOutput" ref="a981c6090f889e6f985b1e9df991bef29" args="(bool powerDownMode=false) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Max517Dac::resetOutput </td>
+          <td class="memname">bool Max517Dac::resetOutput </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>powerDownMode</em> = <code>false</code></td><td>)</td>
@@ -197,16 +207,21 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>I2C write status.<br/>
+<br/>
+ true: I2C write successful.<br/>
+ false: I2C write failed.<br/>
+</dd></dl>
 <dl class="note"><dt><b>Note:</b></dt><dd>The output of the device is left floating while in the power down mode. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ac963cc1ac971aa25a2a3350c53f27dd1"></a><!-- doxytag: member="Max517Dac::setOutput" ref="ac963cc1ac971aa25a2a3350c53f27dd1" args="(uint8_t value, bool powerDownMode=false) const " -->
+<a class="anchor" id="a6db7c28c7ec9ecde21cae4393958e933"></a><!-- doxytag: member="Max517Dac::setOutput" ref="a6db7c28c7ec9ecde21cae4393958e933" args="(uint8_t value, bool powerDownMode=false) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Max517Dac::setOutput </td>
+          <td class="memname">bool Max517Dac::setOutput </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>value</em>, </td>
@@ -234,6 +249,11 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>I2C write status.<br/>
+<br/>
+ true: I2C write successful.<br/>
+ false: I2C write failed.<br/>
+</dd></dl>
 <dl class="note"><dt><b>Note:</b></dt><dd>The output of the device is left floating while in the power down mode. </dd></dl>
 
 </div>
@@ -273,7 +293,7 @@ Static Public Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 7 2012 14:41:43 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 9 2012 09:54:16 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

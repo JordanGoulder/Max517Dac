@@ -30,7 +30,7 @@
 #ifndef MAX517DAC_H
 #define MAX517DAC_H
 
-#include <Arduino.h>
+#include <stdint.h>
 
 /**
  * MAX517 8-bit DAC Device Class.
@@ -60,10 +60,14 @@ class Max517Dac
        * @param powerDownMode Put the device in power down mode after the
        * commnad is exectued.
        *
+       * @return I2C write status.<br><br>
+       * true: I2C write successful.<br>
+       * false: I2C write failed.<br>
+       *
        * @note The output of the device is left floating while in the
        * power down mode.
        */
-      void resetOutput(bool powerDownMode = false) const;
+      bool resetOutput(bool powerDownMode = false) const;
 
       /**
        * Change the value of the DAC.
@@ -72,26 +76,38 @@ class Max517Dac
        * @param powerDownMode Put the device in power down mode after the
        * commnad is exectued.
        *
+       * @return I2C write status.<br><br>
+       * true: I2C write successful.<br>
+       * false: I2C write failed.<br>
+       *
        * @note The output of the device is left floating while in the
        * power down mode.
        */
-      void setOutput(uint8_t value, bool powerDownMode = false) const;
+      bool setOutput(uint8_t value, bool powerDownMode = false) const;
 
       /**
        * Power down the device.
        *
+       * @return I2C write status.<br><br>
+       * true: I2C write successful.<br>
+       * false: I2C write failed.<br>
+       *
        * @note The output of the device is left floating while in the
        * power down mode.
        */
-      void powerDown() const;
+      bool powerDown() const;
 
       /**
        * Power up the device.
        *
+       * @return I2C write status.<br><br>
+       * true: I2C write successful.<br>
+       * false: I2C write failed.<br>
+       *
        * @note The output is restored to the last output value written
        * to the device.
        */
-      void powerUp() const;
+      bool powerUp() const;
 
    private:
 
@@ -106,8 +122,12 @@ class Max517Dac
        * @param command Command used to control the device.
        * @param output  Value to send as the output byte of the message.
        * @param sendOuput Set this to true to indicate that the output should be sent.
+       *
+       * @return I2C write status.<br><br>
+       * true: I2C write successful.<br>
+       * false: I2C write failed.<br>
        */
-      void mSendCommand(uint8_t  command,
+      bool mSendCommand(uint8_t  command,
                         uint8_t  output      = 0,
                         bool     sendOutput  = false) const;
 };

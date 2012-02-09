@@ -49,7 +49,10 @@ void setup()
    Serial.begin(9600); 
 
    // Reset the DAC output
-   dac.resetOutput();
+   if(!dac.resetOutput())
+   {
+      Serial.println("Error talking to DAC. Check wiring.");
+   }
 }
 
 void loop()
@@ -67,7 +70,10 @@ void loop()
    Serial.println(adcInputValue);
 
    // Update the DAC with a new value
-   dac.setOutput(++dacOutputValue);
+   if (!dac.setOutput(++dacOutputValue))
+   {
+      Serial.println("Error talking to DAC. Check wiring.");
+   }
  
    // Wait a little bit for things to settle out
    delay(100);                     
