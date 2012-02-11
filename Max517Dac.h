@@ -34,7 +34,7 @@
 
 /**
  * MAX517 8-bit DAC Device Class.
- * This class provides a simple uint8_terface to the MAX517 8-bit DAC.
+ * This class provides a simple interface to the MAX517 8-bit DAC.
  */
 class Max517Dac
 {
@@ -50,9 +50,9 @@ class Max517Dac
       /**
        * Create a new MAX517 device.
        *
-       * @param address The I2C address of the device.
+       * @param deviceAddress The I2C address of the device.
        */
-      Max517Dac(uint8_t address = DEFAULT_ADDRESS);
+      Max517Dac(uint8_t deviceAddress = DEFAULT_ADDRESS);
       
       /**
        * Reset the DAC output back to 0.
@@ -114,7 +114,7 @@ class Max517Dac
       /**
        * I2C address of the device
        */
-      uint8_t mAddress;
+      uint8_t mDeviceAddress;
 
       /**
        * Performs the actual I2C write to the device
