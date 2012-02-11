@@ -108,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00042"></a>00042 
 <a name="l00048"></a><a class="code" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d">00048</a>       <span class="keyword">static</span> <span class="keyword">const</span> uint8_t <a class="code" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d" title="Default I2C address of the DAC.">DEFAULT_ADDRESS</a> = 0x2C;
 <a name="l00049"></a>00049 
-<a name="l00055"></a>00055       <a class="code" href="class_max517_dac.html#acf4b72598212276f19cc1b3bfd04b657" title="Create a new MAX517 device.">Max517Dac</a>(uint8_t address = <a class="code" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d" title="Default I2C address of the DAC.">DEFAULT_ADDRESS</a>);
+<a name="l00055"></a>00055       <a class="code" href="class_max517_dac.html#a328f6062b95ad85285bd01f6c604ccfa" title="Create a new MAX517 device.">Max517Dac</a>(uint8_t deviceAddress = <a class="code" href="class_max517_dac.html#a8a33bd683569b40028e33820fdf7f56d" title="Default I2C address of the DAC.">DEFAULT_ADDRESS</a>);
 <a name="l00056"></a>00056       
 <a name="l00070"></a>00070       <span class="keywordtype">bool</span> <a class="code" href="class_max517_dac.html#a981c6090f889e6f985b1e9df991bef29" title="Reset the DAC output back to 0.">resetOutput</a>(<span class="keywordtype">bool</span> powerDownMode = <span class="keyword">false</span>) <span class="keyword">const</span>;
 <a name="l00071"></a>00071 
@@ -120,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00111"></a>00111 
 <a name="l00112"></a>00112    <span class="keyword">private</span>:
 <a name="l00113"></a>00113 
-<a name="l00117"></a>00117       uint8_t mAddress;
+<a name="l00117"></a>00117       uint8_t mDeviceAddress;
 <a name="l00118"></a>00118 
 <a name="l00130"></a>00130       <span class="keywordtype">bool</span> mSendCommand(uint8_t  command,
 <a name="l00131"></a>00131                         uint8_t  output      = 0,
@@ -147,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 9 2012 09:54:16 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 11 2012 15:59:29 for MAX517 8-bit DAC Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
