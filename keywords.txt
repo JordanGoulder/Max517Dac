@@ -1,5 +1,27 @@
+###########################################
+# Syntax Coloring Map
+###########################################
+
+###########################################
+# Datatypes (KEYWORD1)
+###########################################
+
 Max517Dac	KEYWORD1
+
+
+###########################################
+# Methods and Functions (KEYWORD2)
+###########################################
+
 resetOutput	KEYWORD2
 setOutput	KEYWORD2
 powerDown	KEYWORD2
 powerUp		KEYWORD2
+
+
+###########################################
+# Constants (LITERAL1)
+###########################################
+
+DEFAULT_ADDRESS	LITERAL1
+
