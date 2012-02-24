@@ -30,7 +30,7 @@ const uint8_t CMD_POWER_UP    = 0x00;
 
 Max517Dac::Max517Dac(uint8_t address)
 {
-   mAddress = address;
+   mDeviceAddress = address;
    Wire.begin();
 }
 
@@ -75,7 +75,7 @@ Max517Dac::powerUp() const
 bool
 Max517Dac::mSendCommand(uint8_t command, uint8_t output, bool sendOutput) const
 {
-   Wire.beginTransmission(mAddress);
+   Wire.beginTransmission(mDeviceAddress);
    Wire.write(command);
 
    if (sendOutput)
