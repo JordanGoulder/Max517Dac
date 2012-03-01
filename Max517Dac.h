@@ -58,7 +58,7 @@ class Max517Dac
        * Reset the DAC output back to 0.
        *
        * @param powerDownMode Put the device in power down mode after the
-       * commnad is exectued.
+       * command is exectued.
        *
        * @return I2C write status.<br><br>
        * true: I2C write successful.<br>
@@ -74,7 +74,7 @@ class Max517Dac
        *
        * @param value Value used to set the DAC.
        * @param powerDownMode Put the device in power down mode after the
-       * commnad is exectued.
+       * command is exectued.
        *
        * @return I2C write status.<br><br>
        * true: I2C write successful.<br>
